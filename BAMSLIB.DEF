@@ -1,0 +1,5 @@
+NAME         DATAOBJ WINDOWCOMPAT NEWFILES
+DESCRIPTION  'BAMS Library Module'
+HEAPSIZE     2048                 
+STACKSIZE    10240                
+EXETYPE      OS2            

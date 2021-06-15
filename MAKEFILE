@@ -1,0 +1,33 @@
+DEBUG = FALSE
+
+!IF "$(DEBUG)" == "TRUE"
+COPT = /c /W3 /AL /Od /Zip /nologo
+LOPT = /CO/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibD
+#BIND = rem
+BIND = bind $*.exe
+!ELSE
+COPT = /c /W3 /AL /Ox /Grs /Zp /nologo
+LOPT = /E/F/PACKC/NOLOGO/NOD/NOE
+LIBS = os2 llibcep GnuLibO
+BIND = bind $*.exe
+!ENDIF
+
+PROG = BAMSLib
+
+all : $(PROG).exe
+
+
+.c.obj:
+   cl $(COPT) $*.c
+
+# $(PROG).obj : $(PROG).c
+#   cl $(COPT) $*.c
+
+BAMSTxt.obj: BAMSTxt.dat
+   Data2obj /Ver /Head /Siz /Align=1 $*
+
+$(PROG).exe : $(PROG).obj ReadBams.obj BAMSTxt.obj
+  link $* ReadBams BAMSTxt $(LOPT),,NUL,$(LIBS),$*.def
+  $(BIND)
+

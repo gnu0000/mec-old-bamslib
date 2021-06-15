@@ -1,0 +1,92 @@
+;
+; BamsTxt.dat
+;
+;
+; (C) 1995 Info Tech Inc.
+;
+; Craig Fitzgerald
+;
+; This file is part of the BAMS Library module
+;
+; This file contains text strings for the BAMSLIB program.
+; This file can be compiled using the Data2Obj program
+;
+; Defined Variables:
+; ------------------
+;    pszUsage1  BAMSLib Program default usage text
+;    pszUsage2  BAMSLib Program full usage text
+;    pszUsage3  BAMSLib Program examples text
+;
+;
+;**************************************************************************
+;*                                                                        *
+;* szUsage1 - BAMSLib Program default usage text                          *
+;*                                                                        *
+;**************************************************************************
+[szUsage1,,_DATA]
+BAMSLIB  BAMS Universal Library Manager      %s                   %s
+
+USAGE:  BAMSLIB [command] BAMSLibrary files...
+
+WHERE:  BAMSLibrary .. The library to process.
+        Files ....... The files to add/del/list...
+
+        command ..... Is one of the following:
+            /a ........ Add files to library.
+            /x ........ Extract files from library.
+            /l ........ List files in library.
+            /t ........ Test files in library.
+
+ type BAMSLIB /Examples  for some sample uses.
+ type BAMSLIB /FullHelp  for a more complete options list.
+;
+;
+;**************************************************************************
+;*                                                                        *
+;*  szUsage2 - BAMSLib Program full usage text                              *
+;*                                                                        *
+;**************************************************************************
+[szUsage2,,_DATA]
+BAMSLIB  BAMS Library Manager      %s                                %s
+USAGE:  BAMSLIB [command] [options] BAMSLibrary files
+
+WHERE:  BAMSLibrary .. The library to process.
+        Files ....... The files to add/del/list...
+
+        command ..... Is one of the following:
+            /a ........ Add files to library.
+            /m ........ Move files to library.
+            /x ........ Extract files from library.
+            /d ........ Delete files from library.
+            /l ........ List files in library.
+            /t ........ Test files in library.
+            /i=file ... Add description file to library.
+
+        options ..... Are zero or more of the following:
+            /c# ....... 0-3 compression method 0=none 3=best.
+            /y ........ Assume Yes to all overwrite prompts.
+            /n ........ Assume No to all overwrite prompts.
+            /s ........ Include System Files in search.
+            /h ........ Include Hidden files in search.
+;
+;
+;**************************************************************************
+;*                                                                        *
+;* szUsage3 - BAMSLib Program examples text                                 *
+;*                                                                        *
+;**************************************************************************
+[szUsage3,,_DATA]
+BAMSLIB  BAMS Library Manager      %s                                %s
+EXAMPLES:
+     BAMSLIB /a Joe FRED*.DAT DATA*.BAK
+  In this example, the library file Joe.BUL is created and all the 
+  files matching 'FRED*.DAT' and 'DATA*.BAK' are added to the library.
+
+     BAMSLIB /l Joe
+  In this example, the files in the library Joe.BUL are listed.
+
+     BAMSLIB /m /i=comment.txt MYLIB *.TXT *.0*
+  In this example, the lib file MYLIB.BUL is created or updated, moving
+  all BAMS proposals and amendments into the library.  The text in file
+  'comment.txt' is added as the library comment.
+
